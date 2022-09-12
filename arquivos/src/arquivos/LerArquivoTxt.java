@@ -11,7 +11,7 @@ public class LerArquivoTxt {
 	public static void main(String[] args) throws FileNotFoundException {
 		List<Pessoa>pessoas=new ArrayList<Pessoa>();
 		
-		FileInputStream entradaArquivo = new FileInputStream(new File("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\arquivo.txt"));
+		FileInputStream entradaArquivo = new FileInputStream(new File("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\arquivo2.csv"));
 		Scanner lerArquivo = new Scanner(entradaArquivo, "UTF-8"); //entrada do arquivo e codificação necessária
 		
 		while(lerArquivo.hasNext()) {

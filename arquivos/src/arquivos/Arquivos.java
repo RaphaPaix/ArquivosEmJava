@@ -30,7 +30,9 @@ public class Arquivos {
 		pessoas.add(pessoa2);
 		pessoas.add(pessoa3);
 		
-		File arquivo = new File("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\arquivo.txt");
+		//final txt para arquivo de texto
+		//final csv para arquivo excel
+		File arquivo = new File("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\arquivo2.csv");
 		if(!arquivo.exists()) { //(! antes da condiçao serve para negá-la)
 			arquivo.createNewFile();
 		}
