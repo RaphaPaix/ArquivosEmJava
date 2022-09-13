@@ -1,11 +1,15 @@
 package arquivos;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 public class EscreveJSON {
 	public static void main(String[] args) throws IOException {
@@ -31,12 +35,24 @@ public class EscreveJSON {
 		
 		//String jsonUser = new Gson().toJson(usuarios);
 		
-		System.out.println(jsonUser);
+		//System.out.println(jsonUser);
 		
 		FileWriter fileWriter = new FileWriter("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\filjson.json");
 		
 		fileWriter.write(jsonUser);
 		fileWriter.flush();
 		fileWriter.close();
+		
+		//------------------LENDO O ARQUIVO JSON------------
+		
+		FileReader fileReader = new FileReader("C:\\Users\\Rapha\\git\\arquivosemjava\\arquivos\\src\\arquivos\\filjson.json");
+		JsonArray jsonArray =  (JsonArray)JsonParser.parseReader(fileReader);
+		List<Usuario>listaLerUsuarios = new ArrayList<Usuario>();
+		for (JsonElement jsonElement : jsonArray) {
+			Usuario usuario = new Gson().fromJson(jsonElement, Usuario.class);
+			listaLerUsuarios.add(usuario);
+		}
+		System.out.println("Leitura do arquivo JSON: "+listaLerUsuarios);
+	
 	}
 }
