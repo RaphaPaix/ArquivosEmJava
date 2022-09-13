@@ -21,8 +21,8 @@ public class ApachePoiEditando2 {
 		while(linhaIterator.hasNext()) { //enquanto tiver linha
 			Row linha = linhaIterator.next(); //dados da pessoa na linha
 			int numeroCelulas = linha.getPhysicalNumberOfCells(); //quantidade de células
-			Cell cell = linha.createCell(numeroCelulas); //cria nova célula na linha
-			cell.setCellValue("5.789");
+			String valorCelula = linha.getCell(0).getStringCellValue();
+			linha.getCell(0).setCellValue(valorCelula+"* EDITADA");
 		}
 		entrada.close();
 		FileOutputStream saida = new FileOutputStream(file);
